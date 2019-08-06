@@ -77,6 +77,8 @@
 							<input name="image" class="form-control form-control-lg" type="file" placeholder="File to Upload" id="inputLarge1">
 						</div>
 						
+						<h6 class="text-danger">${maxImageError}</h6>
+						
 						<button type="submit" class="btn btn-outline-warning mt-3">Post Image</button>
 					
 					</form>
