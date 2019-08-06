@@ -107,7 +107,7 @@ public class LoveBirdUploadImage extends HttpServlet {
 			HttpSession session = request.getSession();
 			
 			session.setAttribute("maxImageError", maxImageError);
-			response.sendRedirect("LoveBirdImageUpload");
+			response.sendRedirect("LoveBirdProfile");
 			
 		} else {
 		
