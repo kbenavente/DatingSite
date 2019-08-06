@@ -27,7 +27,7 @@ public class LoveBirdEditProfile extends HttpServlet {
 			
 		} else {
 			
-			request.getRequestDispatcher("LoveBirdEditProfile.jsp").forward(request, response);
+			request.getRequestDispatcher("WEB-INF/LoveBirdEditProfile.jsp").forward(request, response);
 			
 		}
 		
