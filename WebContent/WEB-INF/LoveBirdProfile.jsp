@@ -163,7 +163,7 @@
 								
 									<c:if test="${otherUserID.isEmpty()}">
 								
-										<button class="delete position-absolute">X</button>
+										<a href="LoveBirdDeleteImage?${imageID}"><button class="delete position-absolute">X</button></a>
 								
 									</c:if>
 									
