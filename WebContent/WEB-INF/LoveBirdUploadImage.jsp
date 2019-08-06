@@ -74,8 +74,25 @@
 						<hr/>
 						
 						<div class="form-group">
-							<input name="image" class="form-control form-control-lg" type="file" placeholder="File to Upload" id="inputLarge1">
-						</div>
+						
+					    <div class="input-group mb-3">
+					    
+					      <div class="custom-file">
+					      
+					        <input name="image" type="file" class="custom-file-input" id="inputGroupFile02">
+					        <label class="custom-file-label" for="inputGroupFile02">Choose Image</label>
+					      
+					      </div>
+					      
+						      <div class="input-group-append">
+						      
+						        <span class="input-group-text" id="">Upload</span>
+						        
+						      </div>
+					      
+					   	 </div>
+					    
+					  	</div>
 						
 						<h6 class="text-danger">${maxImageError}</h6>
 						
