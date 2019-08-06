@@ -95,7 +95,7 @@
 							
 							<c:if test="${otherUserID.equals('')}">
 							
-								<button id="editProfile" class="profile-edit">Edit Profile</button>
+								<a href="LoveBirdEditProfile"><button id="editProfile" class="profile-edit">Edit Profile</button></a>
 								<br/>
 								<a href="LoveBirdUploadImage"><button class="profile-edit mt-3 bg-warning">Add an Image</button></a>
 							
