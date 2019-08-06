@@ -67,6 +67,7 @@ public class LoveBirdSignUp extends HttpServlet {
 		String city = request.getParameter("city");
 		String state = request.getParameter("state");
 		String gender = request.getParameter("gender");
+		String bio = "I am a LoveBird user and I chose to make the first move.";
 		
 		// Check all forms for valid input and also if the username is already taken
 		
@@ -79,7 +80,7 @@ public class LoveBirdSignUp extends HttpServlet {
 			
 			// Create user (more DB work)
 			
-			Utilities.insertNewUserToDB(username, password1, firstName, lastName, email, age, city, state, gender, "I am a LoveBird user and I chose to make the first move. "); // Bio default value is inputed at account creation
+			Utilities.insertNewUserToDB(username, password1, firstName, lastName, email, age, city, state, gender, "I am a LoveBird user and I chose to make the first move."); // Bio default value is inputed at account creation
 			
 			// Create the user's session
 			
