@@ -153,7 +153,7 @@
 						
 							<c:forEach items="${imageIDs}" var="imageID" varStatus="status">
 							
-								<c:if test="${status.getIndex() == 4}">
+								<c:if test="${imageIDs.size() == 4}">
 								
 									<div class="w-100"></div>
 								
