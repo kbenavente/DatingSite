@@ -1,0 +1,241 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    z-index: 1000 !important;
+    background-color: rgba(255, 255, 255, 1) !important;
+}
+
+.custom-container {
+    padding: 0 !important;
+}
+
+.photo-container {
+    width: 100%;
+    height: 100%;
+
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.custom-row {
+    height: 100vh;
+}
+
+.custom-col {
+    background-color: rgba(255, 255, 255, 0.85);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.image-container {
+    width: 30vh;
+    height: 30vh;
+    margin: auto;
+}
+
+.img-container {
+    width: 30vh;
+    height: 30vh;
+    margin: auto;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 5px solid lightgray;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.img-container img {
+	width: 100%;
+	height: 100%;
+}
+
+.image-container h3 {
+    background-color: rgba(255, 255, 255, 0.99);
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.banner-container {
+    width: 100%;
+    height: 30vh;
+    padding-top: 50px;
+    letter-spacing: 7px;
+}
+
+.profile-container {
+    padding: 25px;
+}
+
+.profile-container p {
+    font-size: 20px;
+}
+
+.profile-container button.profile-edit {
+    width: 100%;
+    border: none;
+    font-weight: 300;
+    letter-spacing: 5px;
+    padding: 10px;
+}
+
+.profile-nav button {
+    background-color: transparent;
+    text-align: center;
+    border: none;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+.profile-nav button.current {
+    border-bottom: 2px solid black;
+}
+
+/** Profile images styling **/
+
+.profile-images-container img {
+    width: 100%;
+    height: 50vh;
+
+}
+
+.profile-images-container button.delete {
+    background-color: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-size: 25px;
+    right: 10px;
+    top: 10px;
+
+}
+
+/** Liked Styling **/
+
+.liked-wrapper {
+    width: 100%;
+    border: 1px solid red;
+    padding: 15px;
+}
+
+.liked-wrapper-image {
+    width: 18vh;
+    height: 18vh;
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 5px solid lightgray;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.liked-wrapper-image img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.liked-wrapper button {
+    widtH: 60%;
+    display: inline;
+    margin-left: auto;
+    background-color: transparent;
+    text-align: center;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+button.dislike {
+    background-color: transparent;
+    text-align: center;
+    margin: auto;
+    border: 1px solid #000000;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    width: 10vh;
+    height: 10vh;
+    padding: 10px;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+#profileLikedContainer p {
+    font-size: 30px;
+}
+
+
+/** Matched Styling **/
+
+.matched-wrapper {
+    width: 100%;
+    border: 1px solid red;
+    padding: 15px;
+}
+
+.matched-wrapper-image {
+    width: 18vh;
+    height: 18vh;
+    background-image: url('');
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 5px solid lightgray;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.matched-wrapper-image img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.matched-wrapper button {
+    width: 60%;
+    display: inline;
+    margin-left: auto;
+    background-color: transparent;
+    text-align: center;
+    border: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: 300;
+    letter-spacing: 5px;
+}
+
+/** About Us styling **/
+
+.about-us-title-wrapper {
+    width: 40vh;
+    height: 40vh;
+}
+
+.about-us-title-wrapper h4 {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 75%;
+}
+
+.about-us-content-wrapper h4 {
+    line-height: 70px;
+}
