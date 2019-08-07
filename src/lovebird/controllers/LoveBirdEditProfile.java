@@ -40,13 +40,14 @@ public class LoveBirdEditProfile extends HttpServlet {
 		String bio = request.getParameter("bio");
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
+		String email = request.getParameter("email");
 		String preference = request.getParameter("preference");
 		
 		String fieldsCannotBeEmptyError = "";
 		
-		if(firstName.isEmpty() || lastName.isEmpty() || preference.isEmpty()) {
+		if(firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || preference.isEmpty()) {
 			
-			fieldsCannotBeEmptyError = "Note: First Name, Last Name, and Gender Preference cannot be negative";
+			fieldsCannotBeEmptyError = "Note: First Name, Last Name, Email,  and Gender Preference cannot be negative";
 			getServletContext().setAttribute("fieldsCannotBeEmptyError", fieldsCannotBeEmptyError);
 			response.sendRedirect("LoveBirdEditProfile");
 			
@@ -54,7 +55,7 @@ public class LoveBirdEditProfile extends HttpServlet {
 			
 			HttpSession session = request.getSession();
 			
-			Utilities.updateUserProfile((String)session.getAttribute("username"), bio, firstName, lastName, preference);
+			Utilities.updateUserProfile((String)session.getAttribute("username"), bio, firstName, lastName, email, preference);
 			Utilities.saveUserInfoToSession(session, (String)session.getAttribute("username"));
 			response.sendRedirect("LoveBirdProfile");
 			

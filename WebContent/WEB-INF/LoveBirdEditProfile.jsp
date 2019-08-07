@@ -84,7 +84,12 @@
   						
   						<div class="form-group">
   						  	<label class="col-form-label col-form-label-lg" for="lastName">First Name</label>
-							<input name="lastName" class="form-control form-control-lg" type="text" placeholder="First Name" id="lastName" value="${lastName}" />
+							<input name="lastName" class="form-control form-control-lg" type="text" placeholder="last Name" id="lastName" value="${lastName}" />
+						</div>
+						
+						<div class="form-group">
+  						  	<label class="col-form-label col-form-label-lg" for="lastName">First Name</label>
+							<input name="email" class="form-control form-control-lg" type="email" placeholder="Email" id="email" value="${email}" />
 						</div>
 						
 						 <div class="form-group">

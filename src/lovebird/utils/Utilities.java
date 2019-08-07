@@ -778,7 +778,7 @@ public class Utilities {
 		
 	}
 	
-	public static void updateUserProfile(String username, String bio, String firstName, String lastName, String preference) {
+	public static void updateUserProfile(String username, String bio, String firstName, String lastName, String email, String preference) {
 		
 		Connection c = null;
 		
@@ -790,14 +790,15 @@ public class Utilities {
 			// Make a connection to the database
 			c = DriverManager.getConnection(url, db_username, db_password);
 			
-			String updateUserProfile = "UPDATE love_bird_accounts SET bio = ?, first_name = ?, last_name = ?, preference = ? WHERE username = ?;";
+			String updateUserProfile = "UPDATE love_bird_accounts SET bio = ?, first_name = ?, last_name = ?, email = ?, preference = ? WHERE username = ?;";
 			PreparedStatement updateUserProfileStatement = c.prepareStatement(updateUserProfile);
 			
 			updateUserProfileStatement.setString(1,  bio);
 			updateUserProfileStatement.setString(2, firstName);
 			updateUserProfileStatement.setString(3, lastName);
-			updateUserProfileStatement.setString(4, preference);
-			updateUserProfileStatement.setString(5, username);
+			updateUserProfileStatement.setString(4,  email);
+			updateUserProfileStatement.setString(5, preference);
+			updateUserProfileStatement.setString(6, username);
 			
 			updateUserProfileStatement.executeUpdate();
 			
