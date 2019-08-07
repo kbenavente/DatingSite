@@ -67,7 +67,7 @@
 			
 				<div class="row bg-warning vh-100 p-5">
 					
-					<form class="m-auto p-5 rounded" method="POST" action="LoveBirdUploadImage" enctype="multipart/form-data">
+					<form class="m-auto p-5 rounded" method="POST" action="LoveBirdEditProfile">
 					
 						<h2>Edit Profile</h2>
 						
@@ -79,19 +79,19 @@
 						
 						<div class="form-group">
 							<label class="col-form-label col-form-label-lg" for="firstName">First Name</label>
-  							<input class="form-control form-control-lg" type="text" placeholder="First Name" id="firstName" value="${firstName}" />
+  							<input name="firstName" class="form-control form-control-lg" type="text" placeholder="First Name" id="firstName" value="${firstName}" />
   						</div>
   						
   						<div class="form-group">
   						  	<label class="col-form-label col-form-label-lg" for="lastName">First Name</label>
-							<input class="form-control form-control-lg" type="text" placeholder="First Name" id="lastName" value="${lastName}" />
+							<input name="lastName" class="form-control form-control-lg" type="text" placeholder="First Name" id="lastName" value="${lastName}" />
 						</div>
 						
 						 <div class="form-group">
 						 
 					     	<label for="exampleSelect1">Gender Preference</label>
 					      
-					    	<select class="form-control" id="exampleSelect1">
+					    	<select name="preference" class="form-control" id="exampleSelect1">
 					      
 					    	<option>Male</option>
 					        <option>Female</option>
@@ -100,8 +100,10 @@
 					      </select>
 					      
 					    </div>
+					    
+					    <h4 class="text-danger">${fildsCannotBeEmptyError}</h4>
 						
-						<button type="submit" class="btn btn-outline-warning mt-3">Submit Changes</button>
+						<button type="submit" class="btn btn-outline-warning mt-3">Edit Profile</button>
 					
 					</form>
 					
