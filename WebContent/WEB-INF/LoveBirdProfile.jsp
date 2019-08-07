@@ -89,7 +89,7 @@
 						
 						<div class="col-lg-6 align-items-center mt-5">
 						
-							<p class="w-100 p-3">I am a LoveBird user and I chose to make the first move. </p>
+							<p class="w-100 p-3">${bio}</p>
 							<p class="font-weight-bold p-3">${city}, ${state}</p>
 							<p class="font-weight-bold p-3">${age} years old</p>
 							
