@@ -21,7 +21,7 @@ import org.apache.commons.io.FileUtils;
 import lovebird.accounts.*;
 import lovebird.utils.*;
 
-@WebServlet("/LoveBirdSignUp")
+@WebServlet(urlPatterns = "/LoveBirdSignUp", loadOnStartup = 1)
 public class LoveBirdSignUp extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -68,6 +68,7 @@ public class LoveBirdSignUp extends HttpServlet {
 		String state = request.getParameter("state");
 		String gender = request.getParameter("gender");
 		String bio = "I am a LoveBird user and I chose to make the first move.";
+		String preference = "Both";
 		
 		// Check all forms for valid input and also if the username is already taken
 		
@@ -79,8 +80,8 @@ public class LoveBirdSignUp extends HttpServlet {
 		if(errorsForInputsSignUp.isEmpty() && errorsForPasswordsSignUp.isEmpty() && isUsernameTaken.isEmpty()) {
 			
 			// Create user (more DB work)
-			
-			Utilities.insertNewUserToDB(username, password1, firstName, lastName, email, age, city, state, gender, "I am a LoveBird user and I chose to make the first move."); // Bio default value is inputed at account creation
+			System.out.println("NEXT IS THE INSERT");
+			Utilities.insertNewUserToDB(username, password1, firstName, lastName, email, age, city, state, gender, bio, preference); // Bio default value is inputed at account creation
 			
 			// Create the user's session
 			
@@ -92,7 +93,8 @@ public class LoveBirdSignUp extends HttpServlet {
 			session.setAttribute("city", city);
 			session.setAttribute("state", state);
 			session.setAttribute("gender", gender);
-			session.setAttribute("bio", "I am a LoveBird user and I chose to make the first move.");
+			session.setAttribute("bio", bio);
+			session.setAttribute("preference", preference);
 			session.setMaxInactiveInterval(20 * 60); // Session Timeout set to 20 minutes
 			
 			// Create default profile image
