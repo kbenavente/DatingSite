@@ -152,7 +152,7 @@ public class Utilities {
 		
 	}
 	
-	public static void insertNewUserToDB(String username, String password, String firstName, String lastName, String email, String age, String city, String state, String gender, String bio) {
+	public static void insertNewUserToDB(String username, String password, String firstName, String lastName, String email, String age, String city, String state, String gender, String bio, String preference) {
 		
 		Connection c = null;
 		
@@ -164,7 +164,7 @@ public class Utilities {
 			// Make a connection to the database
 			c = DriverManager.getConnection(url, db_username, db_password);
 			
-			String insertNewUser = "INSERT INTO love_bird_accounts (username, hashed_pass, first_name, last_name, email, age, city, state, gender, bio) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+			String insertNewUser = "INSERT INTO love_bird_accounts (username, hashed_pass, first_name, last_name, email, age, city, state, gender, bio, preference) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 			PreparedStatement insertNewUserStatement = c.prepareStatement(insertNewUser);
 			
 			insertNewUserStatement.setString(1, username);
@@ -177,6 +177,7 @@ public class Utilities {
 			insertNewUserStatement.setString(8, state);
 			insertNewUserStatement.setString(9, gender);
 			insertNewUserStatement.setString(10, bio);
+			insertNewUserStatement.setString(11, preference);
 			
 			insertNewUserStatement.executeUpdate();
 			
@@ -309,7 +310,7 @@ public class Utilities {
 			// Make a connection to the database
 			c = DriverManager.getConnection(url, db_username, db_password);
 			
-			String findUserInfoQuery = "SELECT first_name, last_name, email, age, city, state, gender, bio FROM love_bird_accounts WHERE username = ?;";
+			String findUserInfoQuery = "SELECT first_name, last_name, email, age, city, state, gender, bio, preference FROM love_bird_accounts WHERE username = ?;";
 			PreparedStatement findUserInfoQueryStatement = c.prepareStatement(findUserInfoQuery);
 			
 			findUserInfoQueryStatement.setString(1, username);
@@ -326,6 +327,7 @@ public class Utilities {
 				session.setAttribute("state", result.getString("state")); 
 				session.setAttribute("gender", result.getString("gender")); 
 				session.setAttribute("bio", result.getString("bio"));
+				session.setAttribute("preference", result.getString("preference"));
 				
 			}
 
@@ -357,7 +359,7 @@ public class Utilities {
 			// Make a connection to the database
 			c = DriverManager.getConnection(url, db_username, db_password);
 			
-			String findUserInfoQuery = "SELECT first_name, last_name, email, age, city, state, gender, bio FROM love_bird_accounts WHERE user_id = ?;";
+			String findUserInfoQuery = "SELECT first_name, last_name, email, age, city, state, gender, bio, preference FROM love_bird_accounts WHERE user_id = ?;";
 			PreparedStatement findUserInfoQueryStatement = c.prepareStatement(findUserInfoQuery);
 			
 			findUserInfoQueryStatement.setInt(1, user_id);
@@ -374,6 +376,7 @@ public class Utilities {
 				session.setAttribute("state", result.getString("state")); 
 				session.setAttribute("gender", result.getString("gender")); 
 				session.setAttribute("bio", result.getString("bio"));
+				session.setAttribute("preference", result.getString("preference"));
 				
 			}
 
@@ -756,6 +759,47 @@ public class Utilities {
 				insertNewImageRecordStatement.executeUpdate();
 			
 			}
+			
+			c.close();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if (c != null)
+					c.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+	
+	public static void updateUserProfile(String username, String bio, String firstName, String lastName, String preference) {
+		
+		Connection c = null;
+		
+		try {
+			String url = "jdbc:mysql://localhost:3306/cs3220stu02?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+			String db_username = MySQLServer.USERNAME;
+			String db_password = MySQLServer.PASSWORD;
+
+			// Make a connection to the database
+			c = DriverManager.getConnection(url, db_username, db_password);
+			
+			String updateUserProfile = "UPDATE love_bird_accounts SET bio = ?, first_name = ?, last_name = ?, preference = ? WHERE username = ?;";
+			PreparedStatement updateUserProfileStatement = c.prepareStatement(updateUserProfile);
+			
+			updateUserProfileStatement.setString(1,  bio);
+			updateUserProfileStatement.setString(2, firstName);
+			updateUserProfileStatement.setString(3, lastName);
+			updateUserProfileStatement.setString(4, preference);
+			updateUserProfileStatement.setString(5, username);
+			
+			updateUserProfileStatement.executeUpdate();
 			
 			c.close();
 			
