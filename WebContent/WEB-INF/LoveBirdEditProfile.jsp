@@ -101,7 +101,7 @@
 					      
 					    </div>
 					    
-					    <h4 class="text-danger">${fildsCannotBeEmptyError}</h4>
+					    <h6 class="text-danger">${fieldsCannotBeEmptyError}</h6>
 						
 						<button type="submit" class="btn btn-outline-warning mt-3">Edit Profile</button>
 					
