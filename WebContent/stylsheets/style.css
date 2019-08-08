@@ -41,8 +41,8 @@ html, body {
 }
 
 .img-container {
-    width: 30vh;
-    height: 30vh;
+    width: 25vh;
+    height: 25vh;
     margin: auto;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
