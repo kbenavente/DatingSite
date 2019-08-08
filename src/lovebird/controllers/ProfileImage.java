@@ -34,7 +34,7 @@ public class ProfileImage extends HttpServlet {
 			
 			response.setHeader("Content-Disposition", "inline");
 			
-			String file_path = getServletContext().getRealPath("WEB-INF/files/profile_" + Utilities.getUserID((String) session.getAttribute("username")) + ".png");
+			String file_path = getServletContext().getRealPath("WEB-INF/files/" + (String) session.getAttribute("profile_image"));
 			
 			FileInputStream in = new FileInputStream(file_path);
 			
