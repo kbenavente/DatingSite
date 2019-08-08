@@ -816,8 +816,93 @@ public class Utilities {
 				e.printStackTrace();
 			}
 		}
+	
+	}
+	
+	public static void changePassword(String username, String newPassword) {
 		
+		Connection c = null;
+		
+		try {
+			String url = "jdbc:mysql://localhost:3306/cs3220stu02?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+			String db_username = MySQLServer.USERNAME;
+			String db_password = MySQLServer.PASSWORD;
+
+			// Make a connection to the database
+			c = DriverManager.getConnection(url, db_username, db_password);
+			
+			String updateUserPassword = "UPDATE love_bird_accounts SET hashed_pass = ? WHERE username = ?;";
+			PreparedStatement updateUserPasswordStatement = c.prepareStatement(updateUserPassword);
+			
+			updateUserPasswordStatement.setString(1,  Utilities.getSHA(newPassword));
+			updateUserPasswordStatement.setString(2, username);
+			
+			
+			updateUserPasswordStatement.executeUpdate();
+			
+			c.close();
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if (c != null)
+					c.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
+	
+	public static String validateUserPassword(String username, String password) {
+		
+Connection c = null;
+		
+		try {
+			String url = "jdbc:mysql://localhost:3306/cs3220stu02?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+			String db_username = MySQLServer.USERNAME;
+			String db_password = MySQLServer.PASSWORD;
 
+			// Make a connection to the database
+			c = DriverManager.getConnection(url, db_username, db_password);
+			
+			String findUserQuery = "SELECT username FROM love_bird_accounts WHERE username = ? AND hashed_pass = ?";
+			PreparedStatement findUserQueryStatement = c.prepareStatement(findUserQuery);
+			
+			findUserQueryStatement.setString(1, username);
+			findUserQueryStatement.setString(2, Utilities.getSHA(password));
+			
+			ResultSet result = findUserQueryStatement.executeQuery();
+			
+			if(result.next()) {
+				
+				c.close();
+				
+				return "";
+				
+			}
+			
+			c.close();
+
+			
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+			
+		} finally {
+			try {
+				if (c != null)
+					c.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return "Old Password is Incorrect";
+		
+	}
+	
 }
