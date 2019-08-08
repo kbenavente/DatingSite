@@ -69,6 +69,7 @@ public class LoveBirdSignUp extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String bio = "I am a LoveBird user and I chose to make the first move.";
 		String preference = "Both";
+		String profile_image = "profile_1.png";
 		
 		// Check all forms for valid input and also if the username is already taken
 		
@@ -81,7 +82,7 @@ public class LoveBirdSignUp extends HttpServlet {
 			
 			// Create user (more DB work)
 			System.out.println("NEXT IS THE INSERT");
-			Utilities.insertNewUserToDB(username, password1, firstName, lastName, email, age, city, state, gender, bio, preference); // Bio default value is inputed at account creation
+			Utilities.insertNewUserToDB(username, password1, firstName, lastName, email, age, city, state, gender, bio, preference, profile_image); // Bio default value is inputed at account creation
 			
 			// Create the user's session
 			
@@ -95,13 +96,14 @@ public class LoveBirdSignUp extends HttpServlet {
 			session.setAttribute("gender", gender);
 			session.setAttribute("bio", bio);
 			session.setAttribute("preference", preference);
+			session.setAttribute("profile_image", profile_image);
 			session.setMaxInactiveInterval(20 * 60); // Session Timeout set to 20 minutes
 			
 			// Create default profile image
 			
 			File defaultProfileImage = new File(getServletContext().getRealPath("WEB-INF/files/default-profile.png"));
 			
-			FileUtils.copyFile(defaultProfileImage, new File(getServletContext().getRealPath("WEB-INF/files/profile_" + Utilities.getUserID(username) + ".png")));
+			FileUtils.copyFile(defaultProfileImage, new File(getServletContext().getRealPath("WEB-INF/files/" + profile_image)));
 			
 			// Redirect to the specific user's profile page
 			
