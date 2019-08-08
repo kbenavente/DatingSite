@@ -95,11 +95,15 @@
 							
 							<c:if test="${otherUserID.equals('')}">
 							
-								<a href="LoveBirdEditProfile"><button id="editProfile" class="btn btn-outline-secondary m-4">Edit Profile</button></a>
+								<div class="container-fluid text-center">
 								
-								<a href="LoveBirdUploadImage"><button class="btn btn-outline-secondary m-4">Add an Image</button></a>
+									<a href="LoveBirdEditProfile"><button id="editProfile" class="btn btn-outline-secondary m-4">Edit Profile</button></a>
+									
+									<a href="LoveBirdUploadImage"><button class="btn btn-outline-secondary m-4">Add an Image</button></a>
+									
+									<a href="LoveBirdChangePassword"><button class="btn btn-outline-secondary m-4">Change Password</button></a>
 								
-								<a href="LoveBirdChangePassword"><button class="btn btn-outline-secondary m-4">Change Password</button></a>
+								</div>
 							
 							</c:if>
 						
