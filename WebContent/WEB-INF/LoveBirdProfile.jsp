@@ -99,9 +99,11 @@
 								
 									<a href="LoveBirdEditProfile"><button id="editProfile" class="btn btn-outline-secondary m-4">Edit Profile</button></a>
 									
-									<a href="LoveBirdUploadImage"><button class="btn btn-outline-secondary m-4">Add an Image</button></a>
+									<a href="LoveBirdUploadImage"><button class="btn btn-outline-secondary m-2">Add an Image</button></a>
 									
-									<a href="LoveBirdChangePassword"><button class="btn btn-outline-secondary m-4">Change Password</button></a>
+									<a href="LoveBirdChangeProfileImage"><button class="btn btn-outline-secondary m-2">Change Profile Image</button></a>
+									
+									<a href="LoveBirdChangePassword"><button class="btn btn-outline-secondary m-2">Change Password</button></a>
 								
 								</div>
 							
